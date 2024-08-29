@@ -3,7 +3,7 @@ import Footer from '../Footer'
 
 export const Layout = (): JSX.Element => {
   return (
-    <div className='relative flex min-h-screen flex-col justify-between gap-9 overflow-hidden'>
+    <div className='relative flex min-h-screen flex-col justify-between gap-9 overflow-hidden dark:bg-pokeDarkGray'>
       <div className='flex flex-col gap-9'>
         <Header />
       </div>
