@@ -6,9 +6,13 @@ setDarkMode(initialDarkMode)
 
 interface UIState {
   darkMode: boolean
+  loading: boolean
+  error: string
 }
 const initialState: UIState = {
-  darkMode: initialDarkMode
+  darkMode: initialDarkMode,
+  loading: false,
+  error: ''
 }
 
 export const uiSlice = createSlice({
@@ -18,8 +22,14 @@ export const uiSlice = createSlice({
     toggleDarkMode: (state) => {
       state.darkMode = !state.darkMode
       setDarkMode(state.darkMode)
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload
+    },
+    setError: (state, action) => {
+      state.error = action.payload
     }
   }
 })
 
-export const { toggleDarkMode } = uiSlice.actions
+export const { toggleDarkMode, setLoading, setError } = uiSlice.actions
