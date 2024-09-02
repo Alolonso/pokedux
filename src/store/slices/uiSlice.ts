@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { setDarkMode, getInitialDarkMode } from '../../utils/darkMode'
 
 const initialDarkMode = getInitialDarkMode()
@@ -7,12 +7,13 @@ setDarkMode(initialDarkMode)
 interface UIState {
   darkMode: boolean
   loading: boolean
-  error: string
+  error: string | null
 }
+
 const initialState: UIState = {
   darkMode: initialDarkMode,
   loading: false,
-  error: ''
+  error: null
 }
 
 export const uiSlice = createSlice({
@@ -23,10 +24,10 @@ export const uiSlice = createSlice({
       state.darkMode = !state.darkMode
       setDarkMode(state.darkMode)
     },
-    setLoading: (state, action) => {
+    setLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload
     },
-    setError: (state, action) => {
+    setError: (state, action: PayloadAction<string>) => {
       state.error = action.payload
     }
   }

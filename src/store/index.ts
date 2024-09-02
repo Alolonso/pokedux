@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { uiSlice } from './slices/uiSlice'
+import { pokeSlice } from './slices/pokeSlice'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 export const store = configureStore({
   reducer: {
-    ui: uiSlice.reducer
+    ui: uiSlice.reducer,
+    pokemon: pokeSlice.reducer
   }
 })
 
