@@ -1,14 +1,14 @@
 import axios from 'axios'
 
-interface PokemonApiResponse {
+interface PokemonListApiResponseType {
   count: number
-  results: Pokemon[]
+  results: PokemonType[]
 }
 
-type GetPokemonListResponse =
+type GetPokemonListType =
   | {
       count: number
-      results: Pokemon[]
+      results: PokemonType[]
       error?: undefined
     }
   | {
@@ -25,9 +25,9 @@ const pokeapi = axios.create({
 export const getPokemonList = async (
   limit: number = 10000,
   offset: number = 0
-): Promise<GetPokemonListResponse> => {
+): Promise<GetPokemonListType> => {
   try {
-    const { data } = await pokeapi.get<PokemonApiResponse>(`pokemon`, {
+    const { data } = await pokeapi.get<PokemonListApiResponseType>(`pokemon`, {
       params: { limit, offset }
     })
 

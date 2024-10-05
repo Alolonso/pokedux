@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface PokeState {
-  pokemonList: Pokemon[]
+  pokemonList: PokemonType[]
   pokemonCount: number
 }
 
@@ -14,7 +14,7 @@ export const pokeSlice = createSlice({
   name: 'pokemon',
   initialState,
   reducers: {
-    setPokemonList: (state, action: PayloadAction<Pokemon[]>) => {
+    setPokemonList: (state, action: PayloadAction<PokemonType[]>) => {
       state.pokemonList = action.payload
     },
     setPokemonCount: (state, action: PayloadAction<number>) => {

@@ -1,4 +1,4 @@
-interface Pokemon {
+interface PokemonType {
   name: string
   url: string
 }

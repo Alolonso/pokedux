@@ -8,19 +8,21 @@ export const fetchInitialPokemonData = createAsyncThunk(
   async (_, { dispatch }) => {
     dispatch(setLoading(true))
     try {
-      const { count, results, error } = await getPokemonList()
+      const { count = 0, results = [], error } = await getPokemonList()
 
       if (error) {
         throw new Error(error)
       }
 
-      dispatch(setPokemonList(results ?? []))
-      dispatch(setPokemonCount(count ?? 0))
+      dispatch(setPokemonList(results))
+      dispatch(setPokemonCount(count))
     } catch (error: unknown) {
       const errorMessage = (error as { message: string }).message
       dispatch(setError(errorMessage))
     } finally {
-      dispatch(setLoading(false))
+      setTimeout(() => {
+        dispatch(setLoading(false))
+      }, 1000)
     }
   }
 )
