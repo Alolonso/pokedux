@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react'
+import { useCallback, useRef, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Icons from '../../assets/icons'
 
@@ -16,6 +16,12 @@ const Pagination = ({
   const navigate = useNavigate()
   const inputRef = useRef<HTMLInputElement>(null)
 
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.value = ''
+    }
+  }, [current])
+
   const handleKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.key === 'Enter') {
@@ -25,9 +31,6 @@ const Pagination = ({
         )
         if (inputValue > 0 && inputValue <= total) {
           navigate(`${newLink}${inputValue}`)
-          if (inputRef.current) {
-            inputRef.current.value = ''
-          }
         }
       }
     },
