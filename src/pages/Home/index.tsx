@@ -1,25 +1,51 @@
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, useNavigate } from 'react-router-dom'
 import { useAppSelector } from '../../store'
 import Error from '../../components/Error'
 import Loading from '../../components/Loading'
 import Pagination from '../../components/Pagination'
+import { useEffect } from 'react'
+
+const getPage = (param: string | null): number => {
+  const page = parseInt(param || '1', 10)
+  return isNaN(page) ? 1 : page
+}
 
 const Home = (): JSX.Element => {
   const { error, loading } = useAppSelector((state) => state.ui)
+  const { pokemonCount } = useAppSelector((state) => state.pokemon)
+  const totalPages = Math.ceil(pokemonCount / 20)
+  const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  const page = parseInt(searchParams.get('page') || '1', 10)
+  const currentPage = getPage(searchParams.get('page'))
+
+  useEffect(() => {
+    if (pokemonCount > 0) {
+      if (currentPage < 1 || currentPage > totalPages) {
+        navigate('/?page=1')
+      }
+    }
+  }, [currentPage, pokemonCount, navigate])
 
   return (
     <>
-      {error && <Error message={error} />}
-      {loading && !error && (
+      {error ? (
+        <Error message={error} />
+      ) : loading ? (
         <div className='absolute flex h-screen w-full items-center'>
           <Loading />
         </div>
-      )}
-      {!error && !loading && (
+      ) : (
         <div className='flex flex-col gap-9'>
-          <Pagination current={page} total={789} newLink='/?page=' />
+          <Pagination
+            current={currentPage}
+            total={totalPages}
+            newLink='/?page='
+          />
+          <Pagination
+            current={currentPage}
+            total={totalPages}
+            newLink='/?page='
+          />
         </div>
       )}
     </>
