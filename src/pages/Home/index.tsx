@@ -3,7 +3,9 @@ import { useAppSelector } from '../../store'
 import Error from '../../components/Error'
 import Loading from '../../components/Loading'
 import Pagination from '../../components/Pagination'
+import PokemonList from '../../components/PokemonList'
 import { useEffect } from 'react'
+import { usePokemonList } from '../../hooks/usePokemonList'
 
 const getPage = (param: string | null): number => {
   const page = parseInt(param || '1', 10)
@@ -12,11 +14,13 @@ const getPage = (param: string | null): number => {
 
 const Home = (): JSX.Element => {
   const { error, loading } = useAppSelector((state) => state.ui)
-  const { pokemonCount } = useAppSelector((state) => state.pokemon)
+  const { pokemonList, pokemonCount } = useAppSelector((state) => state.pokemon)
   const totalPages = Math.ceil(pokemonCount / 20)
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const currentPage = getPage(searchParams.get('page'))
+
+  const { pokemonDetailedList } = usePokemonList(currentPage, pokemonList)
 
   useEffect(() => {
     if (pokemonCount > 0) {
@@ -41,6 +45,7 @@ const Home = (): JSX.Element => {
             total={totalPages}
             newLink='/?page='
           />
+          <PokemonList pokemonList={pokemonDetailedList} />
           <Pagination
             current={currentPage}
             total={totalPages}
