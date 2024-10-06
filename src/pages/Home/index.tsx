@@ -26,9 +26,11 @@ const Home = (): JSX.Element => {
     if (pokemonCount > 0) {
       if (currentPage < 1 || currentPage > totalPages) {
         navigate('/?page=1')
+      } else {
+        window.scrollTo(0, 0)
       }
     }
-  }, [currentPage, pokemonCount, navigate])
+  }, [currentPage, pokemonCount, navigate, totalPages])
 
   return (
     <>
