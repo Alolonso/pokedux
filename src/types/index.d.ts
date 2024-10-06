@@ -43,3 +43,28 @@ interface PokemonDetailedApiResponseType {
 type GetPokemonDetailedType =
   | (PokemonDetailedType & { error?: undefined })
   | (Partial<PokemonDetailedType> & { error: string })
+
+type PokemonTypeKeyType =
+  | 'bug'
+  | 'ice'
+  | 'dark'
+  | 'fire'
+  | 'rock'
+  | 'water'
+  | 'fairy'
+  | 'ghost'
+  | 'grass'
+  | 'steel'
+  | 'dragon'
+  | 'flying'
+  | 'ground'
+  | 'normal'
+  | 'poison'
+  | 'psychic'
+  | 'fighting'
+  | 'electric'
+
+interface TypeParametersType {
+  color: string
+  letter: string
+}

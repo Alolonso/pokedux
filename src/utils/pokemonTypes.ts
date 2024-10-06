@@ -1,0 +1,20 @@
+export const pokemonTypes: Record<PokemonTypeKeyType, TypeParametersType> = {
+  bug: { color: '#A8B820', letter: 'b' },
+  ice: { color: '#98D8D8', letter: 'i' },
+  dark: { color: '#705848', letter: 'd' },
+  fire: { color: '#F08030', letter: 'r' },
+  rock: { color: '#B8A038', letter: 'k' },
+  water: { color: '#6890F0', letter: 'w' },
+  fairy: { color: '#EE99AC', letter: 'y' },
+  ghost: { color: '#705898', letter: 'h' },
+  grass: { color: '#78C850', letter: 'g' },
+  steel: { color: '#B8B8D0', letter: 'm' },
+  dragon: { color: '#7038F8', letter: 'n' },
+  flying: { color: '#A890F0', letter: 'v' },
+  ground: { color: '#E0C068', letter: 'a' },
+  normal: { color: '#A8A878', letter: 'c' },
+  poison: { color: '#A040A0', letter: 'o' },
+  psychic: { color: '#F85888', letter: 'p' },
+  fighting: { color: '#C03028', letter: 'f' },
+  electric: { color: '#F8D030', letter: 'l' }
+}
