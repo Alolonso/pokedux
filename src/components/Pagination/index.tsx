@@ -1,6 +1,6 @@
 import { useCallback, useRef, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import Icons from '../../assets/icons'
+import { ArrowIcon } from '../../assets/icons'
 
 interface NavigationType {
   current: number
@@ -41,7 +41,7 @@ const Pagination = ({
     <div className='flex justify-center gap-4'>
       {current > 1 && (
         <Link to={`${newLink}${current - 1}`}>
-          <Icons.Arrow
+          <ArrowIcon
             className='h-8 w-8 rotate-180 text-gray-300 dark:text-pokeLightGray'
             aria-label='Previous page'
           />
@@ -62,7 +62,7 @@ const Pagination = ({
       </div>
       {current < total && (
         <Link to={`${newLink}${current + 1}`}>
-          <Icons.Arrow
+          <ArrowIcon
             className='h-8 w-8 text-gray-300 dark:text-pokeLightGray'
             aria-label='Next page'
           />

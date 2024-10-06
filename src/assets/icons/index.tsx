@@ -1,15 +1,6 @@
-import GitHubIcon from './GitHubIcon'
-import AlolonsoIcon from './AlolonsoIcon'
-import LightIcon from './LightIcon'
-import DarkIcon from './DarkIcon'
-import ArrowIcon from './ArrowIcon'
-
-const Icons = {
-  Github: GitHubIcon,
-  Alolonso: AlolonsoIcon,
-  Dark: DarkIcon,
-  Light: LightIcon,
-  Arrow: ArrowIcon
-}
-
-export default Icons
+export { default as GitHubIcon } from './GitHubIcon'
+export { default as AlolonsoIcon } from './AlolonsoIcon'
+export { default as LightIcon } from './LightIcon'
+export { default as DarkIcon } from './DarkIcon'
+export { default as ArrowIcon } from './ArrowIcon'
+export { default as PokemonIcon } from './PokemonIcon'

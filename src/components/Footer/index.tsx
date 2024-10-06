@@ -1,4 +1,4 @@
-import Icons from '../../assets/icons'
+import { GitHubIcon, AlolonsoIcon } from '../../assets/icons'
 
 const Footer = (): JSX.Element => {
   return (
@@ -10,7 +10,7 @@ const Footer = (): JSX.Element => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <Icons.Github className='h-auto w-7 text-pokeLightGray dark:text-pokeDarkRed' />
+          <GitHubIcon className='h-auto w-7 text-pokeLightGray dark:text-pokeDarkRed' />
         </a>
         <a
           className='transition-transform hover:scale-125'
@@ -18,7 +18,7 @@ const Footer = (): JSX.Element => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <Icons.Alolonso className='h-auto w-8' />
+          <AlolonsoIcon className='h-auto w-8' />
         </a>
       </div>
       <p>

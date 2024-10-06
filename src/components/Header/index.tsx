@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../store'
 import { toggleDarkMode } from '../../store/slices/uiSlice'
-import Icons from '../../assets/icons'
+import { GitHubIcon, LightIcon, DarkIcon } from '../../assets/icons'
 
 const Header = (): JSX.Element => {
   const darkMode = useAppSelector((state) => state.ui.darkMode)
@@ -80,7 +80,7 @@ const Header = (): JSX.Element => {
               rel='noopener noreferrer'
               aria-label='Visit our GitHub repository'
             >
-              <Icons.Github className='h-auto w-9 text-white dark:text-pokeLightGray' />
+              <GitHubIcon className='h-auto w-9 text-white dark:text-pokeLightGray' />
             </a>
             <button
               className='ml-1 dark:ml-0'
@@ -88,9 +88,9 @@ const Header = (): JSX.Element => {
               aria-label={`Toggle to ${darkMode ? 'light' : 'dark'} mode`}
             >
               {darkMode ? (
-                <Icons.Light className='h-auto w-11 text-pokeLightGray' />
+                <LightIcon className='h-auto w-11 text-pokeLightGray' />
               ) : (
-                <Icons.Dark className='h-auto w-11 text-white' />
+                <DarkIcon className='h-auto w-11 text-white' />
               )}
             </button>
           </div>
@@ -104,16 +104,16 @@ const Header = (): JSX.Element => {
             rel='noopener noreferrer'
             aria-label='Visit our GitHub repository'
           >
-            <Icons.Github className='h-auto w-9 text-white hover:text-pokeLightGray dark:text-pokeLightGray dark:hover:text-gray-50' />
+            <GitHubIcon className='h-auto w-9 text-white hover:text-pokeLightGray dark:text-pokeLightGray dark:hover:text-gray-50' />
           </a>
           <button
             onClick={() => dispatch(toggleDarkMode())}
             aria-label={`Toggle to ${darkMode ? 'light' : 'dark'} mode`}
           >
             {darkMode ? (
-              <Icons.Light className='h-auto w-11 text-pokeLightGray hover:text-gray-50' />
+              <LightIcon className='h-auto w-11 text-pokeLightGray hover:text-gray-50' />
             ) : (
-              <Icons.Dark className='h-auto w-11 text-white hover:text-pokeLightGray' />
+              <DarkIcon className='h-auto w-11 text-white hover:text-pokeLightGray' />
             )}
           </button>
         </div>
