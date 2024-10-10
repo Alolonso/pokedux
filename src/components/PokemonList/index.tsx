@@ -6,8 +6,6 @@ export const PokemonList = ({
 }: {
   pokemonList: PokemonDetailedType[]
 }): JSX.Element => {
-  console.log(pokemonList)
-
   return (
     <div className='flex justify-center px-6'>
       <div className='flex max-w-[1100px] flex-wrap items-start justify-center gap-6'>

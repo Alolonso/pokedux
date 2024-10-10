@@ -63,8 +63,3 @@ type PokemonTypeKeyType =
   | 'psychic'
   | 'fighting'
   | 'electric'
-
-interface TypeParametersType {
-  color: string
-  letter: string
-}

@@ -1,8 +1,8 @@
-import { pokemonTypes } from '../../utils/pokemonTypes'
-import { PokemonIcon } from '../../assets/icons'
+import { getPokemonTypes } from '../../utils/getPokemonTypes'
+import { PokemonIcon, TypeIcon } from '../../assets/icons'
 
 const getStyles = (types: PokemonTypeKeyType[]) => {
-  const colors = types.map((type) => pokemonTypes[type].color)
+  const colors = types.map((type) => getPokemonTypes(type))
   return types.length > 1
     ? `linear-gradient(to bottom, ${colors[0]}8C, ${colors[1]}8C)`
     : `${colors[0]}8C`
@@ -41,6 +41,7 @@ const PokemonCard = ({
 
           {pokemon.image ? (
             <img
+              draggable='false'
               style={{ imageRendering: 'pixelated' }}
               className='relative min-h-56 w-full -scale-x-100'
               src={pokemon.image}
@@ -56,6 +57,7 @@ const PokemonCard = ({
         </div>
 
         <p
+          translate='no'
           style={{ textShadow: softShadow }}
           className='relative text-center font-inter text-[23px] text-white dark:text-gray-200'
         >
@@ -66,16 +68,15 @@ const PokemonCard = ({
           {pokemon.types.map((type) => (
             <div
               key={type}
-              className='flex h-8 w-8 items-center justify-center rounded-lg bg-[#ffffff8C] text-2xl shadow-sm dark:bg-gray-200'
+              className='flex h-8 w-8 items-center justify-center rounded-lg bg-[#ffffff8C] shadow-sm dark:bg-gray-200'
             >
-              <p
+              <TypeIcon
                 style={{
-                  color: pokemonTypes[type as PokemonTypeKeyType].color
+                  color: getPokemonTypes(type as PokemonTypeKeyType)
                 }}
-                className='font-essentiarum'
-              >
-                {pokemonTypes[type as PokemonTypeKeyType].letter}
-              </p>
+                className='h-5 w-5'
+                type={type as PokemonTypeKeyType}
+              />
             </div>
           ))}
         </div>
