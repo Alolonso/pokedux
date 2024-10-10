@@ -2,7 +2,12 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../store'
 import { toggleDarkMode } from '../../store/slices/uiSlice'
-import { GitHubIcon, LightIcon, DarkIcon } from '../../assets/icons'
+import {
+  GitHubIcon,
+  LightIcon,
+  DarkIcon,
+  PokeduxIcon
+} from '../../assets/icons'
 
 const Header = (): JSX.Element => {
   const darkMode = useAppSelector((state) => state.ui.darkMode)
@@ -42,11 +47,7 @@ const Header = (): JSX.Element => {
   return (
     <header className='flex h-24 items-center justify-between bg-pokeDarkRed px-5 shadow-md'>
       <Link to={'/'} aria-label='Go to homepage'>
-        <span className='-mr-1 text-5xl text-white dark:text-gray-50'>P</span>
-        <span className='-mr-1 inline-block -rotate-45 font-essentiarum text-3xl text-pokeLightGray'>
-          Xzx
-        </span>
-        <span className='text-5xl text-white dark:text-gray-50'>kedux</span>
+        <PokeduxIcon className='h-auto w-48' />
       </Link>
 
       <div aria-label='Main navigation'>

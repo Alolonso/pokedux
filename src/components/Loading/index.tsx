@@ -1,11 +1,14 @@
+import { PokeballIcon } from '../../assets/icons'
+
 const Loading = (): JSX.Element => {
   return (
     <div className='flex w-full justify-center'>
-      <p className='animate-spin font-essentiarum text-6xl'>
-        <span className='text-pokeLightGray'>X</span>
-        <span className='text-pokeLightRed'>z</span>
-        <span className='text-gray-300'>x</span>
-      </p>
+      <PokeballIcon
+        className='h-auto w-14 animate-spin'
+        color1='#524d4d'
+        color2='#f48282'
+        color3='#d1d5db'
+      />
     </div>
   )
 }
